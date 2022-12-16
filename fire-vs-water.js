@@ -3,7 +3,7 @@ var a, b;
 var mouvementX, mouvementY;
 var x;
 var img, img2;
-var score1, score2;
+var score1;
 var balles;
 var vie;
 var NombreDeBalles;
@@ -21,7 +21,7 @@ function setup() {
     couleur = color(0, 255, 0);
     img = loadImage("data/goutte-d-eau.png");
     img2 = loadImage("data/boule-de-feu.png");
-    score1 = score2 = 0;
+    score1 = 0;
     balles = new Array();
     NombreDeBalles = 3;
     pause = true
@@ -99,16 +99,20 @@ function absorber() {
                     if (a < 180) {
                         a -= 10;
                         b -= 10;
-                    } else {
+                    } 
+                    else 
+                    {
                         a -= 30;
                         b -= 30;
                     }
-                    if (a < 31) {
+                    if (a < 31) 
+                    {
                         noLoop();
                         textSize(50);
                         fill(0);
                         text("Gagné !😀", parseInt(width / 2), parseInt(height / 2));
                         pause = true
+                        score();
                         setTimeout(restart,5*1000)
                         
                     }
@@ -125,6 +129,7 @@ function absorber() {
                     fill(0);
                     text("Perdu !😢", parseInt(width / 2), parseInt(height / 2));
                     pause = true
+                    score();
                     setTimeout(restart,5*1000)
                 }
             } else {
@@ -140,10 +145,11 @@ function restart()
     b = 250;
     mouvementX = 6;
     x = width / 2;
-    score1 = score2 = 0;
+    score1 = 0;
     balles = new Array();
     NombreDeBalles = 3;
-    for (var i = 0; i < NombreDeBalles; i++) {
+    for (var i = 0; i < NombreDeBalles; i++) 
+    {
         balles.push(new Balle(parseInt(random(width)), 0, i == 0));
     }
     vie = 3;
@@ -151,6 +157,11 @@ function restart()
     framenumber = 1;
 }
 
+function score()
+{
+    var Pseudo = document.getElementById("Pseudo").value;
+    document.getElementById("score").innerHTML +="<tr><td>"+Pseudo+"</td><td>"+score1+"</td><td>"+new Date().toLocaleDateString()+"</td></tr>"
+}
 
 
 
