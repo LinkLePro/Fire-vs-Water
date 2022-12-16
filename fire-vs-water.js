@@ -19,8 +19,8 @@ function setup() {
     mouvementX = 6;
     x = width / 2;
     couleur = color(0, 255, 0);
-    img = loadImage("data/goutted'eau.png");
-    img2 = loadImage("data/bouledefeu.png");
+    img = loadImage("data/goutte-d-eau.png");
+    img2 = loadImage("data/boule-de-feu.png");
     score1 = score2 = 0;
     balles = new Array();
     NombreDeBalles = 3;
