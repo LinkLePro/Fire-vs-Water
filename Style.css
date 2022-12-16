@@ -1,0 +1,47 @@
+table
+{
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th,td
+{
+    border: 2px solid black;
+}
+
+tr:nth-child(even)
+{
+    background-color: darkgray;
+}
+h1
+{
+    text-align: center;
+}
+
+kbd 
+{
+    background-color: rgb(65, 64, 64);
+    color: white;
+  
+    border-radius: 0.25rem;
+  
+    border: 1px solid #568156;
+  
+    box-shadow: 0 2px 0 1px black;
+  
+    cursor: default;
+  
+    font-size: 0.75em;
+  
+    line-height: 1;
+    min-width: 0.75rem;
+    text-align: center;
+    padding: 2px 5px;
+    position: relative;
+    top: -1px;
+  }
+
+  kbd:hover {
+    box-shadow: 0 1px 0 0.5px gray);
+    top: 1px;
+  }
