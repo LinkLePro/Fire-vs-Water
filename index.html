@@ -22,11 +22,14 @@
             <li>Attraper les gouttes d'eau pour maigrir, accélérer et augmenter votre score</li>
             <li>Eviter les boules de feu qui vous font grossir, ralentir et diminuer votre score de 2 points</li>
             <li>Appuyer sur la touche <kbd>entrée</kbd> pour lancer le jeu</li>
+            <li>Le jeu commence par défaut à 3 projectiles, mais vous pouvez le changer par la suite</li>
            </ul>
         </article>
-        <article>
+        <form id="formes">
             <p>Pseudo : <input type="text" id = "Pseudo"></p>
-        </article>
+            <p>Nombre de projectiles<input type="number" id = "projectiles" value="3" min="1" max="30"></p>
+            <button>valider</button>
+        </form>
     </section>
     <section>
         <div id="conteneur"></div>
@@ -39,6 +42,7 @@
                     <th>Pseudo</th>
                     <th>Score</th>
                     <th>Date</th>
+                    <th>Nombre de projectiles</th>
                 </tr>
             </thead>
             <tbody id="score">
@@ -52,5 +56,15 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
     <script src="fire-vs-water.js"></script>
+    <script>
+        window.onload = function()
+        {
+            document.getElementById("formes").onsubmit=function(event)
+            {
+                event.preventDefault();
+                restart();
+            }
+        }
+    </script>
 </body>
 </html>

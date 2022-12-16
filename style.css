@@ -18,6 +18,16 @@ h1
     text-align: center;
 }
 
+td
+{
+    text-align: center;
+}
+
+li
+{
+    margin-bottom: 5px;
+}
+
 kbd 
 {
     background-color: rgb(65, 64, 64);
