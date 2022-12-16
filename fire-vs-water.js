@@ -14,22 +14,10 @@ function setup() {
     var canva = createCanvas(windowWidth - 50, 700);
     canva.parent("conteneur");
     background(255);
-    a = 250;
-    b = 250;
-    mouvementX = 6;
-    x = width / 2;
-    couleur = color(0, 255, 0);
     img = loadImage("data/goutte-d-eau.png");
     img2 = loadImage("data/boule-de-feu.png");
-    score1 = 0;
-    balles = new Array();
-    NombreDeBalles = 3;
-    pause = true
-    for (var i = 0; i < NombreDeBalles; i++) {
-        balles.push(new Balle(parseInt(random(width)), 0, i == 0));
-    }
-    vie = 3;
-    framenumber = 1
+    //restart();
+    pause = true;
 }
 
 
@@ -60,11 +48,12 @@ function dessiner() {
     rect(0, 1050, 2000, 1050);
     textSize(50);
     text(score1, int(width / 2 - 50), 50);
-    text("vie(s)=" + vie, 50, 50);
+    if (vie) text("vie(s)=" + vie, 50, 50);
 }
 
 function keyPressed() {
-    if (keyCode == ENTER) {
+    if (keyCode == ENTER) 
+    {
         pause = !pause;
     }
 }
@@ -112,9 +101,7 @@ function absorber() {
                         fill(0);
                         text("Gagné !😀", parseInt(width / 2), parseInt(height / 2));
                         pause = true
-                        score();
-                        setTimeout(restart,5*1000)
-                        
+                        score();                        
                     }
                     mouvementX += 1;
                 }
@@ -130,7 +117,7 @@ function absorber() {
                     text("Perdu !😢", parseInt(width / 2), parseInt(height / 2));
                     pause = true
                     score();
-                    setTimeout(restart,5*1000)
+
                 }
             } else {
                 balle.reset();
@@ -147,12 +134,12 @@ function restart()
     x = width / 2;
     score1 = 0;
     balles = new Array();
-    NombreDeBalles = 3;
+    NombreDeBalles = parseInt(document.getElementById("projectiles").value);
     for (var i = 0; i < NombreDeBalles; i++) 
     {
         balles.push(new Balle(parseInt(random(width)), 0, i == 0));
     }
-    vie = 3;
+    vie = NombreDeBalles;
     loop();
     framenumber = 1;
 }
@@ -160,7 +147,7 @@ function restart()
 function score()
 {
     var Pseudo = document.getElementById("Pseudo").value;
-    document.getElementById("score").innerHTML +="<tr><td>"+Pseudo+"</td><td>"+score1+"</td><td>"+new Date().toLocaleDateString()+"</td></tr>"
+    document.getElementById("score").innerHTML +="<tr><td>"+Pseudo+"</td><td>"+score1+"</td><td>"+new Date().toLocaleDateString()+"</td><td>"+NombreDeBalles+"</td></tr>"
 }
 
 
@@ -191,5 +178,6 @@ class Balle {
         this.x = parseInt(random(width));
         this.y = 0;
         this.eau = random(1) > 0.5;
+        this.mouvementY = parseInt(random(3, 6));
     }
 }
