@@ -9,7 +9,7 @@ var vie;
 var NombreDeBalles;
 var pause;
 var framenumber;
-var perdu, gagné;
+var gagné;
 
 function setup() {
     var canva = createCanvas(windowWidth - 50, 700);
@@ -19,8 +19,8 @@ function setup() {
     img2 = loadImage("data/boule-de-feu.png");
     //restart();
     pause = true;
-    if (vie == 0) = perdu
-    if (a<31) = gagné
+    if (text("Gagné !😀", parseInt(width / 2), parseInt(height / 2))) gagné = true;
+    pause = !gagné
 }
 
 
