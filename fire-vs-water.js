@@ -20,7 +20,7 @@ function setup() {
     //restart();
     pause = true;
     if (text("Gagné !😀", parseInt(width / 2), parseInt(height / 2))) gagné = true;
-    pause = !gagné
+    perdu = !gagné
 }
 
 
