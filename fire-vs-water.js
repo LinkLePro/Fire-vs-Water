@@ -19,8 +19,8 @@ function setup() {
     img2 = loadImage("data/boule-de-feu.png");
     //restart();
     pause = true;
-    perdu = vie=0
-    gagné = a<31
+    if (vie == 0) = perdu
+    if (a<31) = gagné
 }
 
 
@@ -121,7 +121,6 @@ function absorber() {
                     text("Perdu !😢", parseInt(width / 2), parseInt(height / 2));
                     pause = true
                     score();
-
                 }
             } else {
                 balle.reset();
