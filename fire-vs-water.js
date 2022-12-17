@@ -9,7 +9,6 @@ var vie;
 var NombreDeBalles;
 var pause;
 var framenumber;
-var gagné;
 
 function setup() {
     var canva = createCanvas(windowWidth - 50, 700);
@@ -19,8 +18,6 @@ function setup() {
     img2 = loadImage("data/boule-de-feu.png");
     //restart();
     pause = true;
-    if (text("Gagné !😀", parseInt(width / 2), parseInt(height / 2))) gagné = true;
-    perdu = !gagné
 }
 
 
@@ -150,7 +147,7 @@ function restart()
 function score()
 {
     var Pseudo = document.getElementById("Pseudo").value;
-    document.getElementById("score").innerHTML +="<tr><td>"+Pseudo+"</td><td>"+score1+"</td><td>"+new Date().toLocaleDateString()+"</td><td>"+NombreDeBalles+"</td><td>"+gagné+perdu+"</td></tr>"
+    document.getElementById("score").innerHTML +="<tr><td>"+Pseudo+"</td><td>"+score1+"</td><td>"+new Date().toLocaleDateString()+"</td><td>"+NombreDeBalles+"</td>></tr>"
 }
 
 
