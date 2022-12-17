@@ -82,6 +82,7 @@ function absorber() {
                     b += 30;
                     mouvementX -= 1;
                     score1 -= 2;
+                    if (mouvementX == 0) mouvementX = 0;
                 }
                 if (balle.eau) {
                     score1 += 1;
